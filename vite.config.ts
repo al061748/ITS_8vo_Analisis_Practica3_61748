@@ -9,12 +9,17 @@ export default defineConfig({
       "@": "/src",
     }
   },
+  server: {
+    proxy: {
+      '/login': 'http://localhost:3000',
+      '/register': 'http://localhost:3000',
+    }
+  },
   plugins: [
     react(),
     svgr({
       svgrOptions: {
         icon: true,
-        // This will transform your SVG to a React component
         exportType: "named",
         namedExport: "ReactComponent",
       },
